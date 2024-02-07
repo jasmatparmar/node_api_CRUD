@@ -1,5 +1,24 @@
 const mongoose = require("mongoose")
 
+const registerSchema = mongoose.Schema({
+    name:{
+        type: String,
+        required: [true, 'Please enter Name']
+    },
+    userId: {
+        type: String,
+        required: [true, 'Please enter Email']
+    },
+    contact:{
+        type: String,
+        required: [true, 'Please enter Contact Number']
+    },
+    password: {
+        type: String,
+        required: [true, 'Please enter Password']
+    }
+})
+
 const productSchema = mongoose.Schema(
     {
         name:{
@@ -25,5 +44,7 @@ const productSchema = mongoose.Schema(
 )
 
 const Product = mongoose.model('Product', productSchema);
+const Register = mongoose.model('Register', registerSchema);
 
 module.exports = Product;
+module.exports = Register;
